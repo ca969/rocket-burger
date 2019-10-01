@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Customer = require("./models/customer");
+const PORT = process.env.PORT || 3000;
 
 
 const app = express();
@@ -112,4 +113,4 @@ app.post("/check-availability", urlencodedParser, function(req, res) {
   }, 1000);
 });
 
-app.listen(3000);
+app.listen(PORT);
