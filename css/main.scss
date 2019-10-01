@@ -1,0 +1,1339 @@
+// Body
+@import url("https://fonts.googleapis.com/css?family=Viga");
+
+// About Content
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
+@import url("https://fonts.googleapis.com/css?family=Carrois+Gothic");
+
+// Home content
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+@import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz");
+
+// Home Brand Slogan
+@import url("https://fonts.googleapis.com/css?family=Rock+Salt&display=swap");
+
+// Burger Name Fonts
+
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+
+// Burger Ingredients
+
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+// Burger Price
+
+// Buttons
+
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+
+// Reserve
+
+// Reserver Header
+@import url("https://fonts.googleapis.com/css?family=Staatliches&display=swap");
+
+// Reservation Message
+@import url("https://fonts.googleapis.com/css?family=Hind&display=swap");
+
+// Contact
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+// Open in google maps
+@import url("https://fonts.googleapis.com/css?family=Old+Standard+TT&display=swap");
+
+$padding: 15px;
+$margin: 15px;
+$borders: 15px;
+$background: #110f14;
+$background-navbar: rgb(6, 4, 3);
+$black: #060403;
+
+// Fonts
+
+// Home Menu Button
+$button-font: "Fjalla One", sans-serif;
+
+// Home Brand Slogan
+$brand-slogan: "Rock Salt", cursive;
+
+// Burger
+
+// Burger Header
+$burger-header: "Oswald", sans-serif;
+
+// Burger Name
+$burger-name: "Oswald", sans-serif;
+
+// Burger Ingredients
+$burger-ing: "Raleway", sans-serif;
+
+// Burger Price
+$burger-price: "Oswald", sans-serif;
+
+// Dessert
+
+// Dessert Header
+$dessert-header: "Oswald", sans-serif;
+
+// Dessert Name
+$dessert-name: "Oswald", sans-serif;
+
+// Dessert Price
+$dessert-price: "Oswald", sans-serif;
+
+// Reserve
+
+// Reserve Campaign
+$reserve-campaign: "Oswald", sans-serif;
+
+// Reserve a Table
+$reserve-table: "Staatliches", cursive;
+
+// Reserve fields
+$reserve-font: "Oswald", sans-serif;
+
+// Contact
+
+// Contact Headers
+$contact-header: "Montserrat", sans-serif;
+
+// Open in  google maps
+$open-maps: "Old Standard TT", serif;
+
+// Responsive Design
+$desktop: 1000px;
+$large-desktop: 1600px;
+$tablet-min: 768px;
+$tablet-max: 979px;
+$ipad-pro: 1024px;
+$normal-desktop: 1224px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-min}) and  (max-width: #{$tablet-max}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin ipadpro {
+  @media (min-width: #{$ipad-pro}) {
+    @content;
+  }
+}
+
+@mixin normal-desktop {
+  @media (min-width: #{$normal-desktop}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$large-desktop}) {
+    @content;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Viga", sans-serif;
+  background: #333;
+  color: #fff;
+  line-height: 1.6;
+  height: 100vh;
+
+  
+}
+
+header {
+  /* navigation styles */
+  background-color: $background-navbar;
+  text-align: center;
+
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 50px;
+
+  @include desktop {
+    height: 8%;
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 4fr) 1fr;
+  }
+
+  .burger-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 135px;
+
+    @include desktop {
+      grid-column: 2 / span 1;
+    }
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    @include desktop {
+      display: none;
+    }
+
+    span {
+      display: block;
+      background: #fff;
+      height: 2px;
+      width: 2em;
+      border-radius: 2px;
+      position: relative;
+
+      &::before,
+      &::after {
+        display: block;
+        background: #fff;
+        height: 2px;
+        width: 2em;
+        border-radius: 2px;
+        position: relative;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+      }
+      &::before {
+        bottom: 7px;
+      }
+      &::after {
+        top: 7px;
+      }
+    }
+  }
+
+  nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: $background-navbar;
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+
+    @include desktop {
+      all: unset;
+      grid-column: 3 / span 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    ul {
+      list-style: none;
+
+      @include desktop {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      li {
+        margin-bottom: 1em;
+        margin-left: 1em;
+
+        @include desktop {
+          margin-left: 2em;
+          margin-bottom: 0;
+        }
+
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 1.2em;
+          text-transform: uppercase;
+          opacity: 0;
+          transition: opacity 150ms ease-in-out;
+
+          @include desktop {
+            opacity: 1;
+            position: relative;
+            font-size: 2.5vmin;
+
+            &:hover {
+              color: #fcb502;
+              transition: 300ms ease-out;
+            }
+
+            &::before {
+              content: "";
+              display: block;
+              height: 4px;
+              background: #fcb502;
+              position: absolute;
+              top: 1.4em;
+              left: 0;
+              right: 0;
+              transform: scale(0, 1);
+              transition: transform ease-in-out 250ms;
+            }
+
+            &:hover::before {
+              transform: scale(1, 1);
+            }
+          }
+        }
+      }
+    }
+  }
+  .nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+    a {
+      opacity: 1;
+      transition: opacity 250ms ease-in-out 250ms;
+    }
+  }
+}
+
+main {
+  width: 100%;
+  height: 100%;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  section#home {
+    background-image: url("../assets/burger-yellow.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #2a2b2a;
+    background-blend-mode: overlay;
+    // background: url("../assets/burger-corn.jpg") no-repeat fixed bottom right transparent;
+    position: relative;
+
+    .home-content {
+      width: 100%;
+      text-align: center;
+
+      h1 {
+        font-size: 16vmin;
+        // font-size: 5rem;
+        font-family: "Permanent Marker", cursive;
+        margin-bottom: 1rem;
+        //  color: #eaeef2;
+        //  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        color: #fcb502;
+
+        @include tablet {
+          font-size: 13vmin;
+        }
+        @include large-desktop {
+          font-size: 10vmin;
+        }
+
+        @include desktop {
+          font-size: 12vmin;
+        }
+      }
+
+      p {
+        color: #eaeef2;
+        font-size: 4vmin;
+        margin-bottom: 6rem;
+        font-family: $brand-slogan;
+
+        @include tablet {
+          font-size: 3vmin;
+        }
+
+        @include large-desktop {
+          font-size: 1.7rem;
+        }
+      }
+
+      .buttons-parent {
+        @include desktop {
+          display: flex;
+          justify-content: center;
+        }
+        .home-menu-button {
+          display: block;
+          text-decoration: none;
+          // color: #d9dde2;
+          color: #fcb502;
+          background: $black;
+          text-transform: uppercase;
+          border-radius: 8px;
+          font-family: $button-font;
+          font-size: 1.1rem;
+          padding: 10px 10px;
+          transition: 300ms ease-in-out;
+
+          @include tablet {
+            font-size: 3vmin;
+          }
+
+          @include desktop {
+            width: 400px;
+            margin: 10px;
+            font-size: 3vmin;
+            &:hover {
+              color: $black;
+              background: #fcb502;
+            }
+          }
+
+          &:active {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+
+  section#about {
+    background: #fff;
+    // position: relative;
+    // text-align: center;
+
+    .about-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: $black;
+
+      @include desktop {
+        display: table;
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+      }
+
+      .about-column {
+        width: 100%;
+        height: 50%;
+        display: flex;
+
+        @include desktop {
+          float: left;
+          width: 50%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .about-text {
+          margin-top: 3rem;
+          height: 100%;
+
+          @include desktop {
+            height: 50%;
+            margin-top: 15%;
+            margin-bottom: 35%;
+          }
+
+          .about-brand {
+            margin-top: 1rem;
+            font-size: 10vmin;
+            color: #fcb502;
+
+            @include tablet {
+              margin-top: 2rem;
+              font-size: 7vmin;
+            }
+
+            @include desktop {
+              font-size: 7vmin;
+            }
+          }
+
+          hr {
+            width: 90%;
+            margin: 0 auto;
+          }
+
+          .about-header {
+            font-size: 7vmin;
+            color: $black;
+            font-family: "Permanent Marker", cursive;
+            margin-top: 1rem;
+
+            @include tablet {
+              font-size: 5.5vmin;
+            }
+
+            @include desktop {
+              font-size: 5vmin;
+            }
+          }
+
+          p {
+            margin: 10px;
+            padding: 10px;
+            font-size: 3.4vmin;
+            text-align: justify;
+
+            @include tablet {
+              font-size: 2.5vmin;
+            }
+
+            @include desktop {
+              padding: 30px;
+              font-size: 2.5vmin;
+            }
+          }
+        }
+      }
+
+      .about-image-container {
+        width: 100%;
+        height: 50%;
+        padding-bottom: 30px;
+        // margin-top: 2rem;
+        // object-fit: contain;
+        @include desktop {
+          float: left;
+          width: 50%;
+          height: 100%;
+        }
+
+        .column-2,
+        .column-3 {
+          float: left;
+          width: 50%;
+          height: 100%;
+          padding: 10px;
+
+          .about-image {
+            width: 100%;
+            height: 100%;
+            margin-top: 25%;
+            // object-fit: contain;
+
+            @include tablet {
+              margin-top: 0;
+            }
+            @include desktop {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+
+            img {
+              max-width: 85%;
+              height: auto;
+              border-radius: 5px;
+            }
+          }
+        }
+
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+      }
+    }
+  }
+
+  section#menu {
+    background: $black;
+    position: relative;
+    height: 1000px;
+
+    @include desktop {
+      height: 100vh;
+    }
+
+    div.menu-header {
+      width: 100%;
+
+      @include desktop {
+        margin-top: 4%;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 3rem auto 0;
+        padding: 10px;
+        font-size: 5vmin;
+
+        text-transform: uppercase;
+        font-family: "Carrois Gothic", sans-serif;
+
+        @include desktop {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    section#menu-content {
+      height: 1000px;
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 0;
+
+      h1.burger-header {
+        text-align: center;
+        margin: 0 auto 1rem;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-family: $burger-header;
+      }
+
+      .menu-tabs {
+        position: relative;
+        list-style-type: none;
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+
+        // .burger-burger {
+        //   border: 2px solid red;
+        // }
+
+        // .dessert-dessert {
+        //   border: 2px solid red;
+        // }
+
+        li {
+          float: left;
+          width: 25%;
+
+          & > input {
+            display: none;
+          }
+          & > label {
+            display: inline-block;
+            font-family: "Carrois Gothic", sans-serif;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            height: 100%;
+            cursor: pointer;
+            padding: 2px 20px;
+
+            @include desktop {
+              font-size: 3vmin;
+            }
+
+            @include tablet {
+              font-size: 3vmin;
+            }
+          }
+
+          & > input:checked ~ .tab-content {
+            display: block;
+          }
+
+          & > input:checked + label {
+            // color: #ffff00;
+            color: #000;
+            background: #fcb502;
+            border-radius: 121px 121px 121px 121px;
+            font-weight: bold;
+          }
+
+          .tab-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            font-size: 4vmin;
+
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+
+            .burger-tabs {
+              list-style-type: none;
+              position: relative;
+              margin-top: 2rem;
+
+              li {
+                float: left;
+
+                & > input {
+                  display: none;
+                }
+
+                & > label {
+                  display: inline-block;
+                  font-family: "Carrois Gothic", sans-serif;
+                  border-right-width: 0;
+                  border-bottom-width: 0;
+                  height: 100%;
+                  cursor: pointer;
+                  padding: 2px 20px;
+                  display: flex;
+                  justify-content: space-around;
+                  margin-left: auto;
+                  margin-right: auto;
+
+                  @include desktop {
+                    font-size: 2.4vmin;
+                  }
+                }
+
+                &:last-child > label {
+                  border-right-width: 2px;
+                }
+                & > input:checked + label {
+                  // color: #ffff00;
+                  color: #000;
+                  background: #fcb502;
+                  border-radius: 121px 121px 121px 121px;
+                  width: fit-content;
+                }
+
+                & > input:checked ~ .burger-content {
+                  display: block;
+                }
+              }
+
+              .burger-content {
+                display: none;
+                position: absolute;
+                left: 0.5rem;
+                margin-top: 30px;
+                width: 100%;
+                animation-duration: 0.85s;
+
+                ul {
+                  list-style-type: none;
+
+                  @include desktop {
+                    display: flex;
+                    flex-wrap: wrap;
+                  }
+
+                  li {
+                    color: #fcb502;
+                    margin-bottom: 1rem;
+                    text-transform: uppercase;
+                    // font-size: 1.5rem;
+                    font-size: 6vmin;
+                    font-family: $burger-name;
+                    text-align: left;
+                    width: 100%;
+                    position: relative;
+
+                    @include desktop {
+                      padding: 10px;
+                      width: 48%;
+                      font-size: 3vmin;
+                      // margin-left: auto;
+                      // margin-right: auto;
+                      // margin-top: 1rem;
+                    }
+
+                    @include tablet {
+                      font-size: 3.3vmin;
+                      margin-top: 5px;
+                    }
+
+                    .burger-price {
+                      position: absolute;
+                      top: 0.1rem;
+                      right: 1rem;
+                      font-family: $burger-price;
+                      // font-size: 1.8rem;
+                      font-size: 7vmin;
+
+                      @include desktop {
+                        font-size: 3vmin;
+                        margin-top: 0.5rem;
+                      }
+
+                      @include tablet {
+                        font-size: 5vmin;
+                      }
+
+                      .burger-money {
+                        // font-size: 1.4rem;
+                        font-size: 5vmin;
+                        color: #fff;
+
+                        @include desktop {
+                          font-size: 3vmin;
+                        }
+
+                        @include tablet {
+                          font-size: 3vmin;
+                        }
+                      }
+                    }
+                    p {
+                      color: #fff;
+                      font-family: $burger-ing;
+                      // font-size: 0.6rem;
+                      font-size: 2.8vmin;
+                      width: 65%;
+
+                      @include desktop {
+                        font-size: 1.4vmin;
+                      }
+
+                      @include tablet {
+                        font-size: 1.6vmin;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .dessert-content {
+              height: 100vh;
+              position: absolute;
+              left: 0;
+              margin-top: 30px;
+              width: 100%;
+              text-align: center;
+
+              .dessert-menu {
+                // width: 330px;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                height: 800px;
+                animation-duration: 0.85s;
+
+                @include desktop {
+                  display: flex;
+                  flex-wrap: wrap;
+                  height: auto;
+                }
+
+                li {
+                  list-style-type: none;
+                  height: 15%;
+                  width: 100%;
+                  text-align: left;
+
+                  position: relative;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+
+                  font-family: $dessert-name;
+                  font-size: 2rem;
+                  // text-transform: uppercase;
+                  color: #fcb502;
+
+                  @include desktop {
+                    padding: 20px;
+                    width: 50%;
+                    font-size: 5vmin;
+                    margin-top: 1rem;
+                    margin-right: auto;
+                    margin-left: auto;
+                  }
+
+                  .dessert-price {
+                    position: absolute;
+                    top: 27%;
+                    right: 0%;
+                    font-family: $dessert-price;
+                    font-size: 2.3rem;
+                    color: #fcb502;
+
+                    @include desktop {
+                      top: 11%;
+                      right: 13%;
+
+                      font-size: 3.3rem;
+                    }
+
+                    .dessert-money {
+                      font-size: 7vmin;
+                      color: #fff;
+
+                      @include desktop {
+                        font-size: 4vmin;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section#reserve {
+    background: url("../assets/people_eating.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-color: #2a2b2a;
+    background-blend-mode: overlay;
+
+    @include desktop {
+      display: table;
+    }
+
+    .reserve-text {
+      margin-bottom: 0.1rem;
+      height: 25%;
+
+      @include desktop {
+        display: table-cell;
+        width: 50%;
+        vertical-align: middle;
+      }
+
+      .subtext {
+        margin-bottom: 1rem;
+      }
+      .campaign {
+        font-size: 5vmin;
+        font-family: $reserve-campaign;
+
+        @include tablet {
+          font-size: 5vmin;
+        }
+
+        @include desktop {
+          font-size: 4vmin;
+        }
+      }
+      .happy {
+        font-size: 9vmin;
+        color: #fcb502;
+        font-family: $reserve-campaign;
+
+        @include tablet {
+          font-size: 8vmin;
+        }
+
+        @include desktop {
+          font-size: 7.5vmin;
+        }
+      }
+
+      .day {
+        font-size: 3.5vmin;
+
+        @include tablet {
+          font-size: 3vmin;
+        }
+
+        @include desktop {
+          font-size: 2.5vmin;
+        }
+      }
+    }
+
+    .reserve-box {
+      width: 100%;
+      height: 50%;
+
+      @include desktop {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .reserve-header {
+        text-transform: uppercase;
+        font-size: 4vmin;
+        color: #fcb502;
+        font-family: $reserve-font;
+      }
+
+      .reserve-main-form {
+        width: 100%;
+        text-align: center;
+        height: 25vmin;
+
+        @include desktop {
+          height: auto;
+        }
+
+        @include tablet {
+          height: 21vmin;
+        }
+
+        .reserve-form {
+          text-align: left;
+          padding: 10px;
+          font-family: $reserve-font;
+          height: 70%;
+
+          @include desktop {
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+          }
+
+          label {
+            @include tablet {
+              font-size: 2.5vmin;
+            }
+
+            @include desktop {
+              font-size: 2.5vmin;
+            }
+          }
+
+          
+          input {
+            height: 9vmin;
+            width: 100%;
+            background: transparent;
+            border: 1px solid #eaeef2;
+            color: #fcb502;
+            font-size: 5vmin;
+            text-indent: 10px;
+            font-family: $reserve-font;
+
+            @include tablet {
+              height: 6vmin;
+              font-size: 3vmin;
+            }
+
+            @include desktop {
+              font-size: 3.5vmin;
+              height: 8vmin;
+            }
+
+           
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active {
+              transition: background-color 5000s ease-in-out 0s;
+              transition-delay: 9999s;
+              -webkit-text-fill-color: #fcb502;
+            }
+
+            &:focus{
+              outline: 2px solid #fcb502;
+            }
+
+           
+
+            // &:-webkit-autofill {
+            //   box-shadow: 0 0 0;
+            //   -webkit-box-shadow: 0 0 0px 1000px #fcb502 inset;
+            //   background-color: transparent;
+            // }
+          }
+        }
+
+        .button-wrapper {
+          padding: 10px;
+          margin-top: 1rem;
+
+          @include desktop {
+            padding: 10px;
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+          }
+          .reserve-button {
+            border-radius: 4px;
+            background-color: #fcb502;
+            border: none;
+            color: $black;
+            text-align: center;
+            font-size: 1rem;
+
+            transition: 300ms ease-in-out;
+            cursor: pointer;
+            padding: 10px;
+
+            display: inline-block;
+            position: relative;
+
+            width: 100%;
+
+            @include tablet {
+              font-size: 2.5vmin;
+            }
+
+            @include desktop {
+              height: 6vmin;
+              font-size: 2.5vmin;
+            }
+
+            &:hover {
+              background-color: $black;
+              color: #fcb502;
+              border: 2px solid #fcb502;
+            }
+
+            span {
+              height: 2.5rem;
+
+              text-transform: uppercase;
+              font-weight: bold;
+              width: 40%;
+            }
+          }
+        }
+
+        .reserve-message {
+          font-size: 5vmin;
+
+          @include tablet {
+            font-size: 2.5vmin;
+          }
+
+          @include desktop() {
+            font-size: 3vmin;
+          }
+        }
+      }
+    }
+  }
+
+  section#contact {
+    background: $black;
+
+    .contact-main {
+      height: 99%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      @include normal-desktop {
+        display: flex;
+        flex-direction: row;
+       
+        padding-top: 15%;
+
+    
+      }
+
+      .contact-1 {
+        flex: 1;
+      }
+      .contact-2 {
+        flex: 1;
+      }
+      .contact-3 {
+        flex: 1;
+      }
+
+      h3 {
+        margin: 0 auto;
+        width: 45%;
+        font-family: $contact-header;
+        border-bottom: 1px solid #fff;
+
+        @include desktop {
+          width: 70%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          font-size: 3vmin;
+        }
+      }
+
+      .contact-1 {
+        @include tablet {
+          padding-top: 18vmin;
+        }
+
+        @include desktop {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+        .contact-row {
+          @include tablet {
+            height: 100%;
+            align-items: center;
+            display: flex;
+            &:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+          }
+          .contact-content {
+            text-align: justify;
+            padding: 2vmin;
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+
+            @include tablet {
+              float: left;
+              width: 33.33%;
+              padding: 10px;
+            }
+
+            i {
+              padding: 8px;
+              margin: 10px;
+              border-radius: 50%;
+              background: #fcb502;
+              color: black;
+
+              @include desktop {
+                font-size: 3vmin;
+              }
+            }
+
+            p {
+              display: inline-block;
+
+              @include desktop {
+                font-size: 2.3vmin;
+              }
+            }
+          }
+        }
+      }
+
+      .contact-2 {
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        flex-direction: column;
+        @include desktop {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        .social-media {
+          display: flex;
+          justify-content: space-around;
+          padding: 9px;
+
+          @include tablet {
+            justify-content: space-evenly;
+          }
+
+          i {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 50%;
+            background: #fcb502;
+            color: $black;
+            transition: 300ms ease-in-out;
+
+            @include desktop {
+              font-size: 3vmin;
+            }
+
+            &:hover {
+              color: #fcb502;
+              background: $black;
+            }
+          }
+        }
+      }
+
+      .contact-3 {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @include desktop {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        @include tablet {
+          padding-bottom: 11vmin;
+        }
+        .contact-map {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 1rem;
+          // padding: 50px;
+
+          .mapouter {
+            // position: relative;
+            // text-align: right;
+            // text-align: center;
+            height: 142px;
+            width: 246px;
+
+            @include ipadpro {
+              height:215px;
+            }
+
+
+            .gmap_canvas {
+              overflow: hidden;
+              background: none !important;
+              height: 142px;
+              width: 246px;
+
+              @include ipadpro {
+                height:215px;
+              }
+            }
+          }
+        }
+
+        a {
+          font-family: $open-maps;
+          text-decoration: none;
+          color: #fcb502;
+
+          @include tablet {
+            font-size: 3vmin;
+          }
+
+          @include desktop {
+            font-size: 2.5vmin;
+          }
+        }
+      }
+
+      // .new-tab {
+      //   margin-top: 1rem;
+      //   a {
+      //     text-decoration: none;
+      //     color: #fff;
+      //   }
+      // }
+    }
+  }
+}
