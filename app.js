@@ -6,12 +6,18 @@ const Customer = require("./models/customer");
 const PORT = process.env.PORT || 3000;
 
 
+const uri = "mongodb+srv://ceyhun789:ceyhun789@rocket-burger-aobhc.mongodb.net/test?retryWrites=true&w=majority"
+
 const app = express();
 
 mongoose.Promise = global.Promise;
 
 // Connection to database
-mongoose.connect("mongodb://localhost:27017/restaurant-website", {
+// mongoose.connect("mongodb://localhost:27017/restaurant-website", {
+//   useNewUrlParser: true
+// });
+
+mongoose.connect(uri, {
   useNewUrlParser: true
 });
 
@@ -29,7 +35,7 @@ app.use("/assets", express.static("assets"));
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // Customer count
-let customers = 0;
+let customers = 75;
 
 // Save customer to database
 app.post("/check-availability", urlencodedParser, function(req, res) {
