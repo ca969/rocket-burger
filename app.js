@@ -35,7 +35,7 @@ app.use("/assets", express.static("assets"));
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // Customer count
-let customers = 75;
+let customers = 0;
 
 // Save customer to database
 app.post("/check-availability", urlencodedParser, function(req, res) {
@@ -87,7 +87,7 @@ app.post("/check-availability", urlencodedParser, function(req, res) {
 
   console.log("-----------------" + error);
   setTimeout(function() {
-    if (customers > 2 && error !== true) {
+    if (customers > 1 && error !== true) {
       console.log("Sorry tables are full");
       res.json({ message: "Sorry, reservations are full" });
     } else if (error !== true) {
