@@ -87,7 +87,7 @@ app.post("/check-availability", urlencodedParser, function(req, res) {
 
   console.log("-----------------" + error);
   setTimeout(function() {
-    if (customers > 1 && error !== true) {
+    if (customers > 40 && error !== true) {
       console.log("Sorry tables are full");
       res.json({ message: "Sorry, reservations are full" });
     } else if (error !== true) {
