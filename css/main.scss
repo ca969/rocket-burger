@@ -370,11 +370,12 @@ main {
       p {
         color: #eaeef2;
         font-size: 4vmin;
-        margin-bottom: 6rem;
+        margin-bottom: 2rem;
         font-family: $brand-slogan;
 
         @include tablet {
           font-size: 3vmin;
+          margin-bottom: 6rem;
         }
 
         @include large-desktop {
@@ -503,13 +504,14 @@ main {
           }
 
           p {
-            margin: 10px;
+            margin: 5px;
             padding: 10px;
             font-size: 3.4vmin;
             text-align: justify;
 
             @include tablet {
               font-size: 2.5vmin;
+              margin: 10px;
             }
 
             @include desktop {

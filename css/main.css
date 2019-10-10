@@ -305,13 +305,14 @@ main section#home .home-content h1 {
 main section#home .home-content p {
   color: #eaeef2;
   font-size: 4vmin;
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
   font-family: "Rock Salt", cursive;
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
   main section#home .home-content p {
     font-size: 3vmin;
+    margin-bottom: 6rem;
   }
 }
 
@@ -481,7 +482,7 @@ main section#about .about-content .about-column .about-text .about-header {
 }
 
 main section#about .about-content .about-column .about-text p {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   font-size: 3.4vmin;
   text-align: justify;
@@ -490,6 +491,7 @@ main section#about .about-content .about-column .about-text p {
 @media (min-width: 768px) and (max-width: 979px) {
   main section#about .about-content .about-column .about-text p {
     font-size: 2.5vmin;
+    margin: 10px;
   }
 }
 

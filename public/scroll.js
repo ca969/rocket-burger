@@ -1,5 +1,5 @@
 // JQuery for Smooth Scroll
-$("nav ul li a, .buttons-parent a").on("click", function(e) {
+$("nav ul li a, .buttons-parent a, .logo-link").on("click", function(e) {
   if(this.hash !== "") {
       e.preventDefault();
 
