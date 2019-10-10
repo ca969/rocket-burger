@@ -907,7 +907,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    
+    height: 100vh;
     @include tablet {
       display: table;
     }
@@ -976,8 +976,8 @@ main {
     .reserve-box {
       width: 100%;
      
-
-      height: 700px;
+      height: 100%;
+    
 
       @include tablet {
         height: 50%;
