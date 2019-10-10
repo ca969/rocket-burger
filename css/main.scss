@@ -912,6 +912,11 @@ main {
       margin-bottom: 0.1rem;
       height: 25%;
 
+      display: none;
+       @include tablet {
+         display: block;
+       }
+
       @include desktop {
         display: table-cell;
         width: 50%;
