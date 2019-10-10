@@ -384,6 +384,11 @@ main {
       }
 
       .buttons-parent {
+        margin-bottom: 4rem;
+
+        @include tablet {
+          margin-bottom: 0;
+        }
         @include desktop {
           display: flex;
           justify-content: center;

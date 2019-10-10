@@ -322,6 +322,16 @@ main section#home .home-content p {
   }
 }
 
+main section#home .home-content .buttons-parent {
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  main section#home .home-content .buttons-parent {
+    margin-bottom: 0;
+  }
+}
+
 @media (min-width: 1000px) {
   main section#home .home-content .buttons-parent {
     display: -webkit-box;
