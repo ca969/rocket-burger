@@ -9,7 +9,7 @@
     "dom-parser": "^0.1.6",
     "express": "^4.17.0",
     "jsdom": "^15.1.1",
-    "mongoose": "^5.5.9"
+    "mongoose": "^5.7.5"
   },
   "devDependencies": {
     "jsdom-global": "^3.0.2"
